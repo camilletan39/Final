@@ -7,7 +7,6 @@
 
   <!-- Load Leaflet: instructions at http://leafletjs.com/download.html -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.1.0/dist/leaflet.css"
-  <link rel="stylesheet" href="leaflet.css">
   integrity="sha384-Zh+y1U8o6/7ni8Mp8szvUfZjGeKKS10CGH3IlD6L1X+XwzYgQ1llOjw/Wslc0cma"
   crossorigin="anonymous">
   <script src="https://unpkg.com/leaflet@1.1.0/dist/leaflet.js"
@@ -24,7 +23,58 @@
   </style>
 </head>
 <body>
-
+  
+  <body onload="myFunction()">
+    
+    function myFunction(){ 
+      var map = L.map('map').setView(51.101516,10.313446],6);
+      if (map.tap) map.tap.disable(); 
+      L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}',{
+        attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ',
+        maxZoon: 16
+    }).addTo(map);
+      map._layersMinZoom=5;
+    var code = "1X3IE_mFJTnNhYSuBZYaHL7_2G7EgWrQdSAM5Eewnwwg"
+    }
+    
+    Tabletop.init({
+    key:code, 
+    callback: function(sheet, tabletop){
+    
+      for (var i in sheet){
+        var data= sheet[i];
+          
+          var icon = L.icon({
+              iconUrl: data.icon,
+              iconSize: [52,60],
+              iconAnchor: [26,60],
+              popupAnchor: [0,-60]
+          });
+          if(data.iconori ==="left"){
+            icon = L.icon({
+              iconUrl: data.icon, 
+              iconSize:   [60, 52], 
+              iconAnchor:   [60, 26], 
+              popupAnchor: [-35, -26]
+              }); 
+          };
+          if (data.iconori === "right"){ 
+            icon = L.icon({
+              iconUrl: data.icon, 
+              iconSize: [60, 52], 
+              iconAnchor:   [0, 26], 
+              popupAnchor: [35, -26]
+              }); 
+          };
+    
+          L.marker([data.longitude, data.latitude], {icon: icon})
+          .addTo(map)
+        }
+      },
+    simspleSheet: true
+    })
+        
+  
   <!-- Display the map and title with HTML division tags  -->
   <div id="map-title">Air Pollution Mapping</div>
   <div id="map"></div>
