@@ -7,6 +7,7 @@
 
   <!-- Load Leaflet: instructions at http://leafletjs.com/download.html -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.1.0/dist/leaflet.css"
+  <link rel="stylesheet" href="leaflet.css">
   integrity="sha384-Zh+y1U8o6/7ni8Mp8szvUfZjGeKKS10CGH3IlD6L1X+XwzYgQ1llOjw/Wslc0cma"
   crossorigin="anonymous">
   <script src="https://unpkg.com/leaflet@1.1.0/dist/leaflet.js"
@@ -14,7 +15,7 @@
   crossorigin="anonymous"></script>
   <!-- Load Omnivore plugin to convert CSV to GeoJSON format -->
   <script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.3.1/leaflet-omnivore.min.js'></script>
-
+  
   <!-- Position the map and title with Cascading Style Sheet (.css) -->
   <style>
   body { margin:0; padding:0; }
@@ -60,6 +61,7 @@
   /* Display a blue point marker with pop-up text */
   L.marker([14.5647, 120.9932]).addTo(map) // EDIT latitude, longitude to re-position marker
   .bindPopup("De La Salle University Manila"); // EDIT pop-up text message
+    
 
   /* Upload Latitude/Longitude markers from data.csv file, show Title in pop-up, and override initial center and zoom to fit all in map */
   var customLayer = L.geoJson(null, {
