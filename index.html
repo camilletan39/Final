@@ -59,7 +59,8 @@
 
   /* Display a blue point marker with pop-up text */
   L.marker([14.5647, 120.9932]).addTo(map) // EDIT latitude, longitude to re-position marker
-  .bindPopup("De La Salle University Manila"); // EDIT pop-up text message
+  .bindPopup("De La Salle University Manila")
+  .bindPopup("14.5647, 120.9932") ; // EDIT pop-up text message
 
   /* Upload Latitude/Longitude markers from data.csv file, show Title in pop-up, and override initial center and zoom to fit all in map */
   var customLayer = L.geoJson(null, {
