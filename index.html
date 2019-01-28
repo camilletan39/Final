@@ -32,55 +32,7 @@
 </head>
 <body>
   
-  <body onload="myFunction()">
-    
-    function myFunction(){ 
-      var map = L.map('map').setView(51.101516,10.313446],6);
-      if (map.tap) map.tap.disable(); 
-      L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}',{
-        attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ',
-        maxZoon: 16
-    }).addTo(map);
-      map._layersMinZoom=5;
-    var code = "1X3IE_mFJTnNhYSuBZYaHL7_2G7EgWrQdSAM5Eewnwwg"
-    }
-    
-    Tabletop.init({
-    key:code, 
-    callback: function(sheet, tabletop){
-    
-      for (var i in sheet){
-        var data= sheet[i];
-          
-          var icon = L.icon({
-              iconUrl: data.icon,
-              iconSize: [52,60],
-              iconAnchor: [26,60],
-              popupAnchor: [0,-60]
-          });
-          if(data.iconori ==="left"){
-            icon = L.icon({
-              iconUrl: data.icon, 
-              iconSize:   [60, 52], 
-              iconAnchor:   [60, 26], 
-              popupAnchor: [-35, -26]
-              }); 
-          };
-          if (data.iconori === "right"){ 
-            icon = L.icon({
-              iconUrl: data.icon, 
-              iconSize: [60, 52], 
-              iconAnchor:   [0, 26], 
-              popupAnchor: [35, -26]
-              }); 
-          };
-    
-          L.marker([data.longitude, data.latitude], {icon: icon})
-          .addTo(map)
-        }
-      },
-    simspleSheet: true
-    })
+  
         
   
   <!-- Display the map and title with HTML division tags  -->
@@ -88,8 +40,24 @@
   <div id="map"></div>
 
   <!-- Create the map content with JavaScript (.js) -->
-  <script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
+  <script type='text/javascript'>    
+  var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1X3IE_mFJTnNhYSuBZYaHL7_2G7EgWrQdSAM5Eewnwwg/edit?usp=sharing';
 
+  function init() {
+    Tabletop.init( { key: publicSpreadsheetUrl,
+                     callback: showInfo,
+                     simpleSheet: true } )
+  }
+
+  function showInfo(data, tabletop) {
+    alert('Successfully processed!')
+    console.log(data);
+  }
+
+  window.addEventListener('DOMContentLoaded', init)
+  
+    
   /* Set up the map with initial center and zoom level */
   var map = L.map('map', {
     center: [14.65, 120.9842], // EDIT latitude, longitude to re-center map
