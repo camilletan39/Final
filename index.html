@@ -57,44 +57,7 @@
 
   window.addEventListener('DOMContentLoaded', init)
     
-    Tabletop.init({
-    key:code, 
-    callback: function(sheet, tabletop){
-    
-      for (var i in sheet){
-        var data= sheet[i];
-          
-          var icon = L.icon({
-              iconUrl: data.icon,
-              iconSize: [52,60],
-              iconAnchor: [26,60],
-              popupAnchor: [0,-60]
-          });
-          if(data.iconori ==="left"){
-            icon = L.icon({
-              iconUrl: data.icon, 
-              iconSize:   [60, 52], 
-              iconAnchor:   [60, 26], 
-              popupAnchor: [-35, -26]
-              }); 
-          };
-          if (data.iconori === "right"){ 
-            icon = L.icon({
-              iconUrl: data.icon, 
-              iconSize: [60, 52], 
-              iconAnchor:   [0, 26], 
-              popupAnchor: [35, -26]
-              }); 
-          };
-    
-          L.marker([data.longitude, data.latitude], {icon: icon})
-          .addTo(map)
-        }
-      },
-    simspleSheet: true
-    })
-
-  
+   
     
   /* Set up the map with initial center and zoom level */
   var map = L.map('map', {
