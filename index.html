@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>leaflet-map-simple</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LEAFLET SPREADSHEET TEST</title>
   <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
 
   <!-- Load Leaflet: instructions at http://leafletjs.com/download.html -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.1.0/dist/leaflet.css"
@@ -40,73 +41,98 @@
   <div id="map"></div>
 
   <!-- Create the map content with JavaScript (.js) -->
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
-  <script type='text/javascript'>    
-  var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1X3IE_mFJTnNhYSuBZYaHL7_2G7EgWrQdSAM5Eewnwwg/edit?usp=sharing';
+//  <script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
+//  <script type='text/javascript'>    
+//  var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1X3IE_mFJTnNhYSuBZYaHL7_2G7EgWrQdSAM5Eewnwwg/edit?usp=sharing';
 
-  function init() {
-    Tabletop.init( { key: publicSpreadsheetUrl,
-                     callback: showInfo,
-                     simpleSheet: true } )
-  }
+ // function init() {
+ //   Tabletop.init( { key: publicSpreadsheetUrl,
+   //                  callback: showInfo,
+   //                  simpleSheet: true } )
+ // }
 
-  function showInfo(data, tabletop) {
-    alert("Successfully processed!" + data.length + "rows")
-    console.log(data);
+  //function showInfo(data, tabletop) {
+  //  alert("Successfully processed!" + data.length + "rows")
+  //  console.log(data);
     
-  }
+ // }
 
-  window.addEventListener('DOMContentLoaded', init)
+ // window.addEventListener('DOMContentLoaded', init)
     
    
     
   /* Set up the map with initial center and zoom level */
-  var map = L.map('map', {
-    center: [14.65, 120.9842], // EDIT latitude, longitude to re-center map
+ // var map = L.map('map', {
+ //4.65, 120.9842], // EDIT latitude, longitude to re-center map
  //   center: [41, -72],
-    zoom: 12,  // EDIT from 1 to 18 -- decrease to zoom out, increase to zoom in
-    scrollWheelZoom: false
+ //   zoom: 12,  // EDIT from 1 to 18 -- decrease to zoom out, increase to zoom in
+ //   scrollWheelZoom: false
   });
 
   /* Control panel to display map layers */
-  var controlLayers = L.control.layers( null, null, {
-  position: "topright",
-  collapsed: false
-  }).addTo(map);
+ // var controlLayers = L.control.layers( null, null, {
+ // position: "topright",
+ // collapsed: false
+ // }).addTo(map);
 
   /* Carto light-gray basemap tiles with labels */
-  var light = L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, &copy; <a href="https://carto.com/attribution">CARTO</a>'
-  }); // EDIT - insert or remove ".addTo(map)" before last semicolon to display by default
-  controlLayers.addBaseLayer(light, 'Carto Light basemap');
+ // var light = L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', {
+ //   attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, &copy; <a href="https://carto.com/attribution">CARTO</a>'
+ // }); // EDIT - insert or remove ".addTo(map)" before last semicolon to display by default
+ // controlLayers.addBaseLayer(light, 'Carto Light basemap');
 
   /* Stamen colored terrain basemap tiles with labels */
-  var terrain = L.tileLayer('https://stamen-tiles.a.ssl.fastly.net/terrain/{z}/{x}/{y}.png', {
-    attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://www.openstreetmap.org/copyright">ODbL</a>.'
-  }).addTo(map); // EDIT - insert or remove ".addTo(map)" before last semicolon to display by default
-  controlLayers.addBaseLayer(terrain, 'Stamen Terrain basemap');
+ // var terrain = L.tileLayer('https://stamen-tiles.a.ssl.fastly.net/terrain/{z}/{x}/{y}.png', {
+ //   attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://www.openstreetmap.org/copyright">ODbL</a>.'
+ // }).addTo(map); // EDIT - insert or remove ".addTo(map)" before last semicolon to display by default
+ // controlLayers.addBaseLayer(terrain, 'Stamen Terrain basemap');
 
   /* Display a blue point marker with pop-up text */
-  L.marker([14.5647, 120.9932]).addTo(map) // EDIT latitude, longitude to re-position marker
-  .bindPopup("De La Salle University Manila") // EDIT pop-up text message
-  L.marker([14.67, 121]).addTo(map) 
-  .bindPopup("Hi")
-  L.marker([14.82, 120.334]).addTo(map) 
-  .bindPopup("Hello");
+ // L.marker([14.5647, 120.9932]).addTo(map) // EDIT latitude, longitude to re-position marker
+ // .bindPopup("De La Salle University Manila") // EDIT pop-up text message
+ // L.marker([14.67, 121]).addTo(map) 
+ // .bindPopup("Hi")
+ // L.marker([14.82, 120.334]).addTo(map) 
+ // .bindPopup("Hello");
   
     
 
   /* Upload Latitude/Longitude markers from data.csv file, show Title in pop-up, and override initial center and zoom to fit all in map */
-  var customLayer = L.geoJson(null, {
-  onEachFeature: function(feature, layer) {
-  layer.bindPopup(feature.properties.Title);
-  }
-  });
-  var runLayer = omnivore.csv('DataTest.csv', null, customLayer)
-  .on('ready', function() {
-  map.fitBounds(runLayer.getBounds());
+ // var customLayer = L.geoJson(null, {
+ // onEachFeature: function(feature, layer) {
+ // layer.bindPopup(feature.properties.Title);
+ // }
+//  });
+//  var runLayer = omnivore.csv('DataTest.csv', null, customLayer)
+//  .on('ready', function() {
+//  map.fitBounds(runLayer.getBounds());
+//  }).addTo(map);
+//  controlLayers.addOverlay(customLayer, 'Markers from DataTest.csv');
+    
+    
+var map;
+var code = "1X3IE_mFJTnNhYSuBZYaHL7_2G7EgWrQdSAM5Eewnwwg"
+    
+document.addEventListener('DOMContentLoaded',function(){
+  map = L.map('map').setView([49, 17], 7);
+  L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
   }).addTo(map);
-  controlLayers.addOverlay(customLayer, 'Markers from DataTest.csv');
+  
+  Tabletop.init({ 
+    key: code,
+    callback: function(sheet, tabletop){ 
+      for (var i in sheet){
+        var place = sheet[i];
+        L.marker([place.lat, place.lon])
+          .addTo(map)
+          .bindPopup(place.name)
+      }
+    },
+    simpleSheet: true 
+  })
+  
+})
 
   </script>
 </body>
