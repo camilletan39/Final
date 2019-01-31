@@ -31,9 +31,8 @@ document.addEventListener('DOMContentLoaded',function(){
     callback: function(sheet, tabletop){ 
       for (var i in sheet){
         var place = sheet[i];
-        L.marker([place.latitude, place.longitude])
-          .addTo(map)
-          .bindPopup(place.name)
+        var marker= L.marker([place.latitude, place.longitude])
+          .bindPopup(place.name);
           markersLayer.addLayer(marker); 
       }
     },
