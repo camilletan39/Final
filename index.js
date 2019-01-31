@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded',function(){
       markersLayer.clearLayers();
       for (var i in sheet){
         var place = sheet[i];
-var marker= L.marker([place.latitude, place.longitude]).bindPopup(place.value);
+var marker= L.marker([place.latitude, place.longitude]).openPopup(place.value);
         markersLayer.addLayer(marker); 
       }
     },
@@ -52,7 +52,7 @@ function updatePoints() {
       for (var i in sheet){
         var place = sheet[i];
         var marker= L.marker([place.latitude, place.longitude])
-          .bindPopup(place.value);
+          .openPopup(place.value);
           
         markersLayer.addLayer(marker); 
       }
