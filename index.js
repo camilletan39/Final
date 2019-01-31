@@ -1,23 +1,48 @@
 var map;
-var code = "1YIj-UIK6aWD8gf4MN9JpQwmfxmjlfjAZStBrq_obZcM"
+var markersLayer = new L.LayerGroup();
+var code = "1X3IE_mFJTnNhYSuBZYaHL7_2G7EgWrQdSAM5Eewnwwg"
 
 document.addEventListener('DOMContentLoaded',function(){
-  map = L.map('map').setView([49, 17], 7);
+  map = L.map('map').setView([14.5, 120.9], 9);
   L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
       attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
   }).addTo(map);
   
   Tabletop.init({ 
     key: code,
-    callback: function(sheet, tabletop){ 
+    callback: function(sheet, tabletop){
+      markersLayer.clearLayers();
       for (var i in sheet){
         var place = sheet[i];
-        L.marker([place.lat, place.lon])
-          .addTo(map)
-          .bindPopup(place.name)
+var marker= L.marker([place.latitude, place.longitude]).bindPopup(place.name);
+        markersLayer.addLayer(marker); 
+      }
+    },
+    
+    simpleSheet: true 
+    
+  })
+  markersLayer.addTo(map)
+})
+
+function updatePoints() {
+ // change points
+      Tabletop.init({ 
+    key: code,
+    callback: function(sheet, tabletop){ 
+      markersLayer.clearLayers();
+      for (var i in sheet){
+        var place = sheet[i];
+        var marker= L.marker([place.latitude, place.longitude])
+          .bindPopup(place.name);
+        markersLayer.addLayer(marker); 
       }
     },
     simpleSheet: true 
+    
   })
-  
-})
+markersLayer.addTo(map);
+ map.invalidateSize();
+ setTimeout(function(){ updatePoints(); }, 10000);}
+
+window.addEventListener("load", function() { updatePoints(); });
