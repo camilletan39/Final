@@ -1,49 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>LEAFLET SPREADSHEET TEST</title>
-  <meta charset="UTF-8">
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<p class="codepen" data-height="139" data-theme-id="0" data-default-tab="js,result" data-user="camilletan39" data-slug-hash="aXpZVY" style="height: 139px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid black; margin: 1em 0; padding: 1em;" data-pen-title="leaflet spreadsheet synchronisation">
+  <span>See the Pen <a href="https://codepen.io/camilletan39/pen/aXpZVY/">
+  leaflet spreadsheet synchronisation</a> by Camille Merlin Tan (<a href="https://codepen.io/camilletan39">@camilletan39</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+  
  
-  <style>
-    body { margin:0; padding:0; }
-    #map{ width:500px; height:500px; }
-  </style>
-</head>
-<body>
-  
-<div id="map"></div>
- 
- 
-var map;
-var code = "1X3IE_mFJTnNhYSuBZYaHL7_2G7EgWrQdSAM5Eewnwwg"
-    
-document.addEventListener('DOMContentLoaded',function(){
-  map = L.map('map').setView([49, 17], 7);
-  L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-  }).addTo(map);
-  
-  Tabletop.init({ 
-    key: code,
-    callback: function(sheet, tabletop){ 
-      for (var i in sheet){
-        var place = sheet[i];
-        L.marker([place.lat, place.lon])
-          .addTo(map)
-          .bindPopup(place.name)
-      }
-    },
-    simpleSheet: true 
-   })
-  })
-
-  
-  </script>
-</body>
-</html>
-  
-  
-
-
-
