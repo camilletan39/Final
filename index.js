@@ -29,10 +29,10 @@ document.addEventListener('DOMContentLoaded',function(){
   Tabletop.init({ 
     key: code,
     callback: function(sheet, tabletop){ 
+      markersLayer.clearLayers();
       for (var i in sheet){
         var place = sheet[i];
-        var marker= L.marker([place.latitude, place.longitude])
-          .bindPopup(place.name);
+        var marker= L.marker([place.latitude, place.longitude]).bindPopup(place.name);
           markersLayer.addLayer(marker); 
       }
     },
@@ -49,8 +49,7 @@ function updatePoints() {
       markersLayer.clearLayers();
       for (var i in sheet){
         var place = sheet[i];
-        var marker= L.marker([place.latitude, place.longitude])
-          .bindPopup(place.name);
+        var marker= L.marker([place.latitude, place.longitude]).bindPopup(place.name);
         markersLayer.addLayer(marker); 
       }
     },
