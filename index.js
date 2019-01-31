@@ -8,10 +8,10 @@ document.addEventListener('DOMContentLoaded',function(){
       attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
   }).addTo(map);
   
-  var controlLayers = L.control.layers( null, null, {
-  position: "topright",
-  collapsed: false
-  }).addTo(map);
+   var controlLayers = L.control.layers( null, null, {
+   position: "topright",
+   collapsed: false
+   }).addTo(map);
 
   
    var light = L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', {
