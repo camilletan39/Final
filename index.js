@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded',function(){
       markersLayer.clearLayers();
       for (var i in sheet){
         var place = sheet[i];
-var marker= L.marker([place.latitude, place.longitude]).bindPopup(place.date + place.value);
+var marker= L.marker([place.latitude, place.longitude]).bindPopup("<center>"+place.date +"<br>"+ place.value);
         markersLayer.addLayer(marker); 
       }
     },
@@ -34,7 +34,7 @@ function updatePoints() {
       for (var i in sheet){
         var place = sheet[i];
         var marker= L.marker([place.latitude, place.longitude])
-          .bindPopup(place.date + place.value);
+          .bindPopup("<center>"+place.date +"<br>"+ place.value);
         markersLayer.addLayer(marker); 
       }
     },
