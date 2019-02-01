@@ -20,7 +20,7 @@ var marker= L.marker([place.latitude, place.longitude]).bindPopup(place.value);
     },
     
     simpleSheet: true 
-    
+     
   })
   markersLayer.addTo(map)
 })
