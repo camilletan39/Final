@@ -7,6 +7,8 @@ var markersLayer = new L.LayerGroup();
 
 var code = "1X3IE_mFJTnNhYSuBZYaHL7_2G7EgWrQdSAM5Eewnwwg"
 
+
+
 function loadTabletop(){
   var e = document.getElementById("ddlViewBy");
 var indexColor = e.options[e.selectedIndex].value;
@@ -14,6 +16,7 @@ var indexColor = e.options[e.selectedIndex].value;
     key: code,
     callback: function(sheet, tabletop){ 
       markersLayer.clearLayers();
+      
       for (var i in sheet){
         var place = sheet[i];
         var val = place.value;
@@ -61,10 +64,11 @@ markersLayer.addTo(map);
 }
 
 document.addEventListener('DOMContentLoaded',function(){
-  map = L.map('map').setView([14.5, 120.9], 9);
+
   L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
       attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
   }).addTo(map);
+
 loadTabletop();
 })
 
@@ -97,3 +101,4 @@ $('input[name="datetimes"]').on('apply.daterangepicker', function(ev, picker) {
   startdate = new Date(picker.startDate.format('YYYY-MM-DD HH:mm:ss'));
   enddate = new Date(picker.endDate.format('YYYY-MM-DD HH:mm:ss'));
 });
+
