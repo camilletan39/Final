@@ -1,0 +1,61 @@
+h1, h2, h3{
+  font-family: "Helvetica";
+}
+p{
+  font-family: "Helvetica";
+  text-align: justify;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+#map{
+  width: auto;
+  height: 500px;
+}
+
+.datetimes{
+  width: 80%;
+}
+
+.aqi{
+  width: 80%;
+}
+
+#ddlViewBy{
+  width: 80%;
+}
+
+.column {
+  float: left;
+  width: 33.33%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+ul {
+    margin: 20px;
+}
+
+.input-color {
+    position: relative;
+}
+.input-color input {
+    padding-left: 20px;
+}
+.input-color .color-box {
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    background-color: #ccc;
+    position: absolute;
+    left: 5px;
+    top: 5px;
+}
+.leaflet-control-container .leaflet-routing-container-hide {
+    display: none;
+}
+
